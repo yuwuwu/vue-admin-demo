@@ -1,0 +1,168 @@
+@import './element-ui.scss';
+@import './mixin.scss';
+
+body {
+  min-width: 960px;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
+  background:#eef1f6;
+  font-size:14px;
+}
+
+html {
+  // -webkit-filter: grayscale(100%);
+  min-width: 960px;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+a:focus,
+a:active {
+  outline: none;
+}
+
+a,
+a:focus,
+a:hover {
+  cursor: pointer;
+  color: inherit;
+  text-decoration: none;
+}
+p{
+  -webkit-margin-before: 0em;  
+  -webkit-margin-after: 0em;
+}
+
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+
+body {
+  background-color: #eef1f6;
+}
+
+
+/* //  修改*号 */
+.el-form-item .el-form-item__label:before {
+  content: '*';
+  color: #ffffff;
+  margin-right: 4px;
+  font-size: 16px;//   ******************
+  vertical-align:middle;
+}
+
+//弹出框表单布局
+.dia_form {
+  width: 100%; 
+  padding:0 6%;
+  .form_item{
+    width: 100%;
+  }
+}
+//弹框样式
+.el-dialog{
+  margin-top: 0 !important;
+  top: 5% !important;
+  max-height: calc(100% - 10%);
+  max-width:calc(100% - 50px);
+  display: flex;
+  flex-direction: column;
+  // transform: translateY(-50%); 
+}
+// 弹框
+.el-dialog__title{
+  font-size:14px;
+  font-weight: bold;
+}
+.el-dialog {
+  width: 70% !important;
+}
+.el-dialog__header{
+  height: 45px;
+  line-height: 45px;
+  border-bottom:1px solid #eee;
+  background-color:#f3f7f9;
+  padding: 0 0 0 20px;
+  font-size: 16px;
+}
+.dialog-fade-enter-active{
+  animation:dialog-fade-in 0.5s;
+}
+.dialog-fade-leave-active{
+  animation:dialog-fade-out 0.5s;
+}
+@keyframes dialog-fade-in {
+  0% {
+    
+    transform: translate3d(0, 100%, 0);
+    opacity: 0;
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+@keyframes dialog-fade-out {
+  0% {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(0, 100%, 0);
+    opacity: 0;
+  }
+}
+
+
+//鼠标滑过图片效果
+.img-hover{
+  display: block;
+}
+.img-hover:hover{
+  cursor: pointer;
+}
+
+//高亮当前打开的菜单
+
+.sidebar .router-link-active{
+  span{
+    color: #fff;
+  }
+}
+// 阿里字体图标
+@font-face {
+  font-family: 'iconfont';  /* project id 531557 */
+  src: url('//at.alicdn.com/t/font_531557_hqxtkbps2rp.eot');
+  src: url('//at.alicdn.com/t/font_531557_hqxtkbps2rp.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_531557_hqxtkbps2rp.woff') format('woff'),
+  url('//at.alicdn.com/t/font_531557_hqxtkbps2rp.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_531557_hqxtkbps2rp.svg#iconfont') format('svg');
+}
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 14px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+//溢出显示省略号
+.overheidden {
+  width: 120px;
+  margin: 0 auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

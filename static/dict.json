@@ -1,0 +1,248 @@
+{
+    "assess_grade": {
+        "1": "一级",
+        "2": "二级",
+        "3": "三级",
+        "4": "四级",
+        "5": "五级"
+    },
+    "del_flag": {
+        "0": "正常",
+        "1": "删除"
+    },
+    "education": {
+        "primary": "小学",
+        "middle": "初中",
+        "special": "中专",
+        "high": "高中",
+        "junior": "大专",
+        "university": "本科及以上"
+    },
+    "ethnic": {
+        "01": "汉族",
+        "21": "佤族",
+        "46": "崩龙族",
+        "35": "撒拉族",
+        "19": "黎族",
+        "30": "土族",
+        "15": "土家族",
+        "54": "门巴族",
+        "31": "达斡尔族",
+        "12": "侗族",
+        "32": "仫佬族",
+        "41": "塔吉克族",
+        "50": "塔塔尔族",
+        "22": "畲族",
+        "53": "赫哲族",
+        "11": "满族",
+        "23": "高山族",
+        "09": "布依族",
+        "47": "保安族",
+        "07": "彝族",
+        "36": "毛难族",
+        "14": "白族",
+        "28": "景颇族",
+        "55": "珞巴族",
+        "29": "柯尔克孜族",
+        "17": "哈萨克族",
+        "16": "哈尼族",
+        "43": "乌孜别克族",
+        "13": "瑶族",
+        "40": "普米族",
+        "02": "蒙古族",
+        "45": "鄂温克族",
+        "39": "阿昌族",
+        "10": "朝鲜族",
+        "34": "布朗族",
+        "44": "俄罗斯族",
+        "52": "鄂伦春族",
+        "27": "纳西族",
+        "38": "锡伯族",
+        "25": "水族",
+        "49": "京族",
+        "48": "裕固族",
+        "04": "藏族",
+        "26": "东乡族",
+        "18": "傣族",
+        "56": "基诺族",
+        "03": "回族",
+        "06": "苗族",
+        "33": "羌族",
+        "05": "维吾尔族",
+        "42": "怒族",
+        "20": "僳僳族",
+        "51": "独龙族",
+        "24": "拉祜族",
+        "37": "仡佬族",
+        "08": "壮族"
+    },
+    "job_natrue": {
+        "full_time": "全职",
+        "part_time": "兼职"
+    },
+    "job_status": {
+        "online": "在岗",
+        "leave": "离岗"
+    },
+    "matrimony": {
+        "unmarried": "未婚",
+        "married": "已婚",
+        "divorce": "离婚",
+        "widowed": "丧偶"
+    },
+    "meterage": {
+        "house": "按居室",
+        "area": "按面积",
+        "num": "按时长或数量"
+    },
+    "order_majorSort": {
+        "clean": "保洁",
+        "repair": "家修"
+    },
+    "order_source": {
+        "score": "积分商城",
+        "store": "门店",
+        "app": "app",
+        "wechat": "微信",
+        "tv": "电视",
+        "callcenter": "400呼叫中心",
+        "web": "PC"
+    },
+    "order_status": {
+        "dispatched": "已派单",
+        "finish": "已完成",
+        "success": "已成功",
+        "waitdispatch": "待派单",
+        "cancel": "已取消",
+        "close":"已关闭",
+        "whole": "全部"
+    },
+    "order_type": {
+        "common": "普通订单",
+        "group_split_yes": "组合并拆单",
+        "group_split_no": "组合不拆单"
+    },
+    "pay_method": {
+        "online": "在线",
+        "offline": "货到付款"
+    },
+    "pay_platform": {
+        "cash": "现金",
+        "wx_pub_qr": "微信扫码",
+        "alipay": "支付宝",
+        "balance": "余额",
+        "alipay_qr": "支付宝扫码",
+        "wx": "微信",
+        "pos": "银行卡"
+    },
+    "pay_status": {
+        "payed": "已支付",
+        "waitpay": "待支付"
+    },
+    "cancel_type": {
+        "customer": "用户来电取消",
+        "tech": "无可派技师",
+        "other": "其它原因"
+    },
+    "relation": {
+        "spouse": "夫妻",
+        "parent": "父母",
+        "children": "子女",
+        "siblings": "兄弟姐妹",
+        "relative": "亲戚"
+    },
+    "return_status": {
+        "refunded": "退款成功",
+        "failure": "退款失败",
+        "cancel": "已取消",
+        "refunding": "申请退款中"
+    },
+    "service_area_type": {
+        "map": "地图",
+        "store": "门店"
+    },
+    "service_station_type": {
+        "self": "直营",
+        "join": "加盟"
+    },
+    "service_status": {
+        "wait_service": "待服务",
+        "started": "已上门",
+        "finish": "已完成",
+        "cancel": "已取消"
+    },
+    "ser_sort": {
+        "clean": "保洁",
+        "repair": "家修",
+        "all": "全部"
+    },
+    "sex": {
+        "male": "男",
+        "female": "女"
+    },
+    "source": {
+        "own": "本机构",
+        "other": "第三方"
+    },
+    "sys_log_type": {
+        "visit": "接入日志",
+        "error": "异常日志"
+    },
+    "tech_status": {
+        "2": "未派单",
+        "1": "派单"
+    },
+    "work_time": {
+        "0": "1年以下",
+        "1": "1年",
+        "2": "2年",
+        "3": "3年",
+        "4": "4年",
+        "5": "5年",
+        "6": "6年",
+        "7": "7年",
+        "8": "8年",
+        "9": "9年",
+        "10": "10年",
+        "11": "10年以上"
+    },
+    "yes_no": {
+        "yes": "是",
+        "no": "否"
+    },
+    "send_type": {
+        "save_order": "更新订单信息",
+        "del_goods": "删除商品",
+        "save_goods": "保存商品"
+    },
+    "butt_status": {
+        "butt_butt": "对接中",
+        "butt_success": "对接成功",
+        "butt_fail": "对接失败",
+        "remove_fail": "解除失败"
+    },
+    "dock_platform": {
+        "select":"请选择",
+        "gasq": "国安社区"
+    },
+    "refund_type": {
+        "many":"多退",
+        "less": "少退"
+    },
+    "frequency_options": {
+        "week_one": "1周1次",
+        "week_some": "1周多次",
+        "two_week_one": "2周1次"
+    },         
+    "refund_method":{
+        "cash":"现金"
+    },
+    "goods_type":{
+        "single":"单一商品",
+        "combined":"组合商品"
+    },
+    "tech_Housekeeper":{
+        "tech":"普通技师",
+        "leader":"管家"
+    }
+}

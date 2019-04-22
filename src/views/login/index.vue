@@ -3,64 +3,33 @@
     <!-- <div  >
      <a style="display:block;width:100px;height:100px;line-height:100px;bachground-color:red;color:#fff" href="https://download.guoanshequ.com/android/servicepersonnel.apk">下载APP</a>
       
-    </div>-->
+    </div> -->
     <div class="formBox">
-      <el-form
-        autocomplete="on"
-        :model="loginForm"
-        :rules="loginRules"
-        ref="loginForm"
-        label-position="left"
-        label-width="0px"
-        class="login-form"
-      >
-        <p class="title">国安社区自营服务平台</p>
-        <p class="etitle">SERVICE MANAGEMENT SYSTEM</p>
-        <el-form-item prop="username">
-          <span class="svg-container svg-container_login">
-            <icon-svg icon-class="yonghuming"/>
-          </span>
-          <el-input
-            class="username"
-            name="username"
-            type="text"
-            v-model="loginForm.username"
-            autocomplete="on"
-            placeholder="登录账号(手机号)"
-          />
-        </el-form-item>
-        <el-form-item prop="password">
-          <span class="svg-container">
-            <icon-svg icon-class="mima"></icon-svg>
-          </span>
-          <el-input
-            class="password"
-            name="password"
-            type="password"
-            @keyup.enter.native="handleLogin"
-            v-model="loginForm.password"
-            autocomplete="on"
-            placeholder="密码(6-20位数字、字母组合)"
-          ></el-input>
-        </el-form-item>
-        <el-form-item class="loginitem">
-          <el-button
-            type="primary"
-            class="loginbtn"
-            :loading="loading"
-            @click.native.prevent="handleLogin"
-          >登&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;录</el-button>
-        </el-form-item>
-        <div class="tips">
-          <!-- <span style="margin-right:20px;">登录账号: 手机号</span>
-          </span> 密码: 6-20w</span>-->
-        </div>
-      </el-form>
+    <el-form autoComplete="on" :model="loginForm" :rules="loginRules" ref="loginForm" label-position="left" label-width="0px"
+      class="login-form">
+      <el-form-item prop="username">
+        <el-input class="username" name="username" type="text" v-model="loginForm.username" autoComplete="on" placeholder="登录账号(手机号)" />
+      </el-form-item>
+      <el-form-item prop="password">
+        <el-input class="password" name="password" type="password" @keyup.enter.native="handleLogin" v-model="loginForm.password" autoComplete="on"
+          placeholder="密码(6-20位数字、字母组合)"></el-input>
+      </el-form-item>
+      <el-form-item class="loginitem">
+        <el-button type="primary"  class="loginbtn"  :loading="loading" @click.native.prevent="handleLogin">
+          登&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;录
+        </el-button>
+      </el-form-item>
+      <div class='tips'>
+        <!-- <span style="margin-right:20px;">登录账号: 手机号</span>
+        </span> 密码: 6-20w</span> -->
+      </div>
+    </el-form>
     </div>
   </div>
 </template>
 
 <script>
+
 export default {
   name: "login",
   data() {

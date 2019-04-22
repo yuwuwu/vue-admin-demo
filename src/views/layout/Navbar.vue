@@ -1,9 +1,11 @@
 <template>
   <div class="navbar" >
     <div style="width:100%;float:left;background:#fff;position:relative">
-      <hamburger class="hamburger-container" :toggleClick="toggleSideBar" :isActive="sidebar.opened"></hamburger>
+      <!-- <hamburger class="hamburger-container" :toggleClick="toggleSideBar" :isActive="sidebar.opened"></hamburger> -->
       <ul class="nav-ul">
-        
+                      
+        <li class="liBtn" style="cursor: pointer; margin-right:20px;padding:10px;">                  
+        </li>
         <li><img  :src="'../../../static/icon/rule.png'" alt="" class="side-img1" style="height:25px;"></li>       
         <li class="liBtn liUser">
           <!-- <i class="iconfont color" >&#xe669;</i> -->
@@ -41,26 +43,38 @@ export default {
     ...mapGetters(["sidebar", "name", "avatar"])
   },
   mounted() {
-    
+    console.log(this.name)
+    setTimeout(()=>{
+    console.log(this.sidebar)
+
+    console.log(["sidebar", "name", "avatar"],'9999')
+    },3000)
+    console.log(mapGetters(["sidebar", "name", "avatar"]),'9999')
+    var src1 = window.location.href;
+    var src2 = this.$route.path;
+    var src3 = src1.replace(src2, "/download");
+    this.appSrc = src3;
   },
   methods: {
+    qrCallback(dataUrl, id) {},
     toggleSideBar() {
       this.$store.dispatch("ToggleSideBar");
     },
     logout() {
       this.$store.dispatch("LogOut").then(() => {
         var arr = this.$router.options.routes;
-        // for (var i of arr) {
-        //   if (i.children) {
-        //   // console.log(i)
-        //     for (var j of i.children) {
-        //       if (j.meta) {
-        //         j.meta.keepNum = 1;
-        //       }
-        //     }
-        //   }
-        // }
+        for (var i of arr) {
+          if (i.children) {
+          // console.log(i)
+            for (var j of i.children) {
+              if (j.meta) {
+                j.meta.keepNum = 1;
+              }
+            }
+          }
+        }
         this.$router.push({ path: "/login" });
+        this.$store.state.app.visitedViews = [];
         // location.reload(); // 为了重新实例化vue-router对象 避免bug
       });
     }

@@ -63,3 +63,18 @@ $seleteBack:#4c70e8;
   background-color: $seleteBack
 }
 
+@mixin tableWhole($tableSize,$tableColor,$tableTrHeight,$tableBackGround:red){
+  font-size: $tableSize;
+  color: $tableColor;
+  & td{
+    height: $tableTrHeight;
+  }
+  & th{
+    background-color:$tableBackGround;
+    height: $tableTrHeight;
+  }
+  & .el-table__header-wrapper thead div{
+    background-color:$tableBackGround;
+  }
+}
+

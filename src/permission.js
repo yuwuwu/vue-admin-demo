@@ -18,6 +18,13 @@ router.beforeEach((to, from, next) => {
         path: '/'
       })
     } else {
+      var arr = document.getElementsByClassName('liDom')
+      for (var i = 0; i < arr.length; i++) {
+        arr[i].classList.remove('is-active')
+        if (arr[i].innerText === to.name) {
+          arr[i].classList.add('is-active')
+        }
+      }
       if (store.getters.menu.length === 0) {
         store.dispatch('GetUserInfo').then(res => { // 拉取用户信息
           next()
@@ -30,7 +37,6 @@ router.beforeEach((to, from, next) => {
             location.reload()
           })
         })
-        
       } else {
         next()
       }

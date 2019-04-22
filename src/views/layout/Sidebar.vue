@@ -26,9 +26,8 @@ export default {
 }
 </script>
 
-<style rel="stylesheet/scss" lang="scss">
+<style rel="stylesheet/scss" lang="scss" scoped>
 .el-menu {
   min-height: 100%;
-  background-color: #2f323e !important;
 }
 </style>

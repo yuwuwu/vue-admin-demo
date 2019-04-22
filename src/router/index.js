@@ -21,11 +21,12 @@ export const constantRouterMap = [
   {
     path: '/test',
     component: Layout,
-    name: 'test',
+    name: '测试页面',
     children: [
-      { path: 'test/test', meta: {  keepAlive: false, }, component: _import('test/test'), name: '测试页面' }
+      { path: 'test', meta: { isUseCache: true, keepAlive: false, keepNum: 1 }, name: '测试页面', component: _import('test/test') }
     ]
   },
+
   { path: '*', redirect: '/404', hidden: true }
 ]
 

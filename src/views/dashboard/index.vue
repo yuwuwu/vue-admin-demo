@@ -7,11 +7,10 @@
   <transition enter-active-class="animated bounceInLeft" leave-active-class="animated flipInX">
     <p v-if="show">hello</p>
   </transition>
-</div> -->
-    <div class='hollebg'>
-      <!-- <img src="../../../static/icon/hello.png" alt=""> -->
-      <!-- <div class="img"></div> -->
-    </div>  
+    </div>-->
+    <div class="hollebg">
+      
+    </div>
   </div>
 </template>
 

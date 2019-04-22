@@ -7,19 +7,19 @@
       </router-link>
     </div>
      <template>
-       <el-menu  :default-openeds='itemArr' :unique-opened='true'>
-        <el-submenu  v-for="item in menu" v-if="item.subMenus" :index="item.id" :key="item.id" >        
+       <a-menu  :defaultOpeneds='itemArr'  mode="inline" theme="dark">
+        <a-sub-menu  v-for="item in menu" v-if="item.subMenus" :index="item.id" :key="item.id" >        
               <template slot="title">
                 <img v-if="item.icon != ''" :src="'../../../static/icon/'+item.icon+'.png'" alt="" class="side-img">
                 {{item.name}}          
               </template>
-              <el-menu-item class="liDom" v-for="child in item.subMenus" :index="child.id" :key="child.id">
+              <a-menu-item class="liDom" v-for="child in item.subMenus" :index="child.id" :key="child.id">
                   <router-link  class="menu-indent" :to="{path:child.href,query:{keep:'false'}}">
                     <span style="display:inline-block;width:160px;">{{child.name}}</span>
                   </router-link>  
-              </el-menu-item>
-        </el-submenu>
-        </el-menu>
+              </a-menu-item>
+        </a-sub-menu>
+        </a-menu>
     </template>     	  
   </div>
 </template>

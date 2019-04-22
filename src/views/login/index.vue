@@ -5,25 +5,25 @@
       
     </div> -->
     <div class="formBox">
-    <el-form autoComplete="on" :model="loginForm" :rules="loginRules" ref="loginForm" label-position="left" label-width="0px"
+    <a-form autoComplete="on" :model="loginForm" :rules="loginRules" ref="loginForm" label-position="left" label-width="0px"
       class="login-form">
-      <el-form-item prop="username">
-        <el-input class="username" name="username" type="text" v-model="loginForm.username" autoComplete="on" placeholder="登录账号(手机号)" />
-      </el-form-item>
-      <el-form-item prop="password">
-        <el-input class="password" name="password" type="password" @keyup.enter.native="handleLogin" v-model="loginForm.password" autoComplete="on"
-          placeholder="密码(6-20位数字、字母组合)"></el-input>
-      </el-form-item>
-      <el-form-item class="loginitem">
-        <el-button type="primary"  class="loginbtn"  :loading="loading" @click.native.prevent="handleLogin">
+      <a-form-item prop="username">
+        <a-input class="username" name="username" type="text" v-model="loginForm.username" autoComplete="on" placeholder="登录账号(手机号)" />
+      </a-form-item>
+      <a-form-item prop="password">
+        <a-input class="password" name="password" type="password" @keyup.enter.native="handleLogin" v-model="loginForm.password" autoComplete="on"
+          placeholder="密码(6-20位数字、字母组合)"></a-input>
+      </a-form-item>
+      <a-form-item class="loginitem">
+        <a-button type="primary"  class="loginbtn"  :loading="loading" @click.native.prevent="handleLogin">
           登&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;录
-        </el-button>
-      </el-form-item>
+        </a-button>
+      </a-form-item>
       <div class='tips'>
         <!-- <span style="margin-right:20px;">登录账号: 手机号</span>
         </span> 密码: 6-20w</span> -->
       </div>
-    </el-form>
+    </a-form>
     </div>
   </div>
 </template>
@@ -82,8 +82,8 @@ export default {
       // localStorage.removeItem("btn");
       // localStorage.removeItem("roleId");
       // localStorage.removeItem("roleId");
-      this.$refs.loginForm.validate(valid => {
-        if (valid) {
+      // this.$refs.loginForm.validate(valid => {
+        // if (valid) {
           this.loading = true;
           this.$store
             .dispatch("LoginByUsername", this.loginForm)
@@ -94,10 +94,10 @@ export default {
             .catch(() => {
               this.loading = false;
             });
-        } else {
-          return false;
-        }
-      });
+        // } else {
+          // return false;
+        // }
+      // });
     }
   }
 };
@@ -127,7 +127,7 @@ $light_gray: #eee;
     color: #ffffff;
     height: 50px;
   }
-  .el-input {
+  .ant-form-input {
     display: inline-block;
     height: 50px;
     width: 85%;
@@ -201,7 +201,7 @@ $light_gray: #eee;
     background-color: #1f3264;
     border-radius: 3px;
   }
-  .el-form-item {
+  .antd-form-item {
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 5px;
     color: #454545;

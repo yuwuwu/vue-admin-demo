@@ -81,10 +81,47 @@ const user = {
         {
           id: '1',
           name: '测试',
-          icon:'tech',
+          icon: 'tech',
           subMenus: [
             {
               id: '12',
+              name: '测试页',
+              href: '/test/test'
+
+            },
+            {
+              id: '123',
+              name: '测试页',
+              href: '/test/test'
+
+            },
+            {
+              id: '124',
+              name: '测试页',
+              href: '/test/test'
+
+            },
+          ]
+        },
+        {
+          id: '2',
+          name: '测试',
+          icon: 'tech',
+          subMenus: [
+            {
+              id: '22',
+              name: '测试页',
+              href: '/test/test'
+
+            },
+            {
+              id: '223',
+              name: '测试页',
+              href: '/test/test'
+
+            },
+            {
+              id: '224',
               name: '测试页',
               href: '/test/test'
 

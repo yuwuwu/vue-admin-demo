@@ -1,7 +1,7 @@
 import axios from 'axios'
 import router from '../router'
 import store from '../store'
-import { Message } from 'element-ui'
+import { Message } from 'ant-design-vue'
 // 创建axios实例
 const instance = axios.create({
   // baseURL: 'http://10.16.70.139:8800/', // api的base_url

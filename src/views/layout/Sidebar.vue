@@ -1,11 +1,11 @@
 <template>
-  <el-menu ref="menu1" mode="vertical" :default-active="$route.path">
+  <a-menu ref="menu1" mode="vertical" :default-active="$route.path">
     <sidebar-item  :menu="menu"></sidebar-item>
-  </el-menu>
+  </a-menu>
 </template>
 
 <script>
-import { Loading } from 'element-ui'
+import { Loading } from 'ant-design-vue'
 import SidebarItem from './SidebarItem'
 export default {
   components: { SidebarItem },
@@ -27,7 +27,5 @@ export default {
 </script>
 
 <style rel="stylesheet/scss" lang="scss" scoped>
-.el-menu {
-  min-height: 100%;
-}
+
 </style>

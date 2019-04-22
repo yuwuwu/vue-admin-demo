@@ -88,10 +88,7 @@ export default {
   display: block;
   float: left;
 }
-.hoverStyle .el-dropdown-menu__item:not(.is-disabled):hover {
-  background: #fff;
-  color: #000;
-}
+
 * {
   margin: 0px;
   padding: 0px;
@@ -164,12 +161,6 @@ export default {
   padding-left: 20px;
   border-bottom: 1px solid #eee;
 }
-.nav-ul li .el-dropdown-link {
-  display: block;
-  height: 50px;
-  width: 100%;
-  padding: 0 20px;
-}
 
 .nav-posi {
   // border: 1px solid;
@@ -227,9 +218,7 @@ export default {
 .liUser {
   padding: 0 20px;
 }
-.el-dropdown-menu {
-  border-radius: 2px;
-}
+
 .out {
   background-color: #4c70e8;
   padding: 0 5px;
@@ -239,9 +228,7 @@ export default {
     color: #fff !important;
   }
 }
-.el-menu--horizontal {
-  border-bottom: none;
-}
+
 .qrcode {
   box-sizing: border-box;
   -moz-box-sizing: border-box; /* Firefox */

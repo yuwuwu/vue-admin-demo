@@ -3,9 +3,9 @@
    
     <div class="leftmove" @click="leftmove">&#139</div>
     <router-link  class="tabs-view" v-for="tag in Array.from(visitedViews)" :to="{path:tag.path,query:{keep:'true'}}" :key="tag.path+'?'+'keep=true'">
-      <el-tag :closable="true" class="tabsview" :type="isActive(tag.path)?'primary':''" @close='closeViewTabs(tag,$event)'>
+      <a-tag :closable="true" class="tabsview" :type="isActive(tag.path)?'primary':''" @close='closeViewTabs(tag,$event)'>
         {{tag.name}}
-      </el-tag>
+      </a-tag>
     </router-link>
 	<div class="rightmove"  @click="rightmove">&#155</div>
   </div>
@@ -105,11 +105,6 @@ export default {
 
 <style rel="stylesheet/scss" lang="scss" scoped>
 .tabs-view-container {
-  .router-link-active {
-    .el-tag {
-      background-color: #eef1f6;
-    }
-  }
   margin-top: 0px !important;
   display: inline-block;
   height: 32px;

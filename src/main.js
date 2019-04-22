@@ -1,8 +1,6 @@
 import Vue from 'vue'
-import ElementUI from 'element-ui'
-import Egrid from 'egrid'
-import 'element-ui/lib/theme-chalk/index.css'
-// import locale from 'element-ui/lib/locale/lang/zh-CN'
+import Antd from 'ant-design-vue';
+import 'ant-design-vue/dist/antd.css';  // or 'ant-design-vue/dist/antd.less'
 import App from './App'
 import router from './router'
 import store from './store'
@@ -13,21 +11,14 @@ import '@/permission' // 权限
 import 'swiper/dist/css/swiper.css'// swiper
 
 // axios.defaults.withCredentials = true
-Vue.use(ElementUI)
-Vue.use(Egrid)
+Vue.use(Antd);
 Vue.use(VueAwesomeSwiper)
 
 Vue.config.productionTip = false
 // Vue.config.devtools = false
 Vue.prototype.$http = axios
 Vue.prototype.imgSrc = 'https://imgcdn.guoanshequ.com/'
-Vue.prototype.picWidth400 = '?x-oss-process=image/resize,m_fill,h_400,w_400'
-Vue.prototype.picWidth120 = '?x-oss-process=image/resize,m_fill,h_120,w_120'
-Vue.prototype.picWidth250 = '?x-oss-process=image/resize,,m_fill,h_250,w_250'
-Vue.prototype.picWidth400Auto = '?x-oss-process=image/resize,m_pad,h_400,w_400'
-Vue.prototype.picWidth60 = '?x-oss-process=image/resize,m_fill,h_60,w_60'
-Vue.prototype.picWidth100 = '?x-oss-process=image/resize,m_fill,h_100,w_100'
-Vue.prototype.picWidth300 = '?x-oss-process=image/resize,m_fill,h_170,w_300,limit_0'
+
 // 按下标删除数组的对应元素
 Array.prototype.del = function (dx) {
   if (isNaN(dx) || dx > this.length) { return false }

@@ -5,7 +5,6 @@
 </template>
 
 <script>
-import { Loading } from 'ant-design-vue'
 import SidebarItem from './SidebarItem'
 export default {
   components: { SidebarItem },

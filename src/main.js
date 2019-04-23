@@ -1,23 +1,27 @@
 import Vue from 'vue'
-import Antd from 'ant-design-vue';
+import {Button,Menu,Form,Input,Tag} from "ant-design-vue"
 import 'ant-design-vue/dist/antd.css';  // or 'ant-design-vue/dist/antd.less'
 import App from './App'
 import router from './router'
 import store from './store'
 import axios from 'axios'
-import VueAwesomeSwiper from 'vue-awesome-swiper'
+import VueAwesomeSwiper from 'vue-awesome-swiper'//轮播组件，不需要可以注释并卸载
 import '@/icons' // icon
 import '@/permission' // 权限
 import 'swiper/dist/css/swiper.css'// swiper
 
 // axios.defaults.withCredentials = true
-Vue.use(Antd);
+Vue.use(Button)
+Vue.use(Menu)
+Vue.use(Form)
+Vue.use(Input)
+Vue.use(Tag)
 Vue.use(VueAwesomeSwiper)
 
 Vue.config.productionTip = false
 // Vue.config.devtools = false
 Vue.prototype.$http = axios
-Vue.prototype.imgSrc = 'https://imgcdn.guoanshequ.com/'
+Vue.prototype.imgSrc = 'https://'
 
 // 按下标删除数组的对应元素
 Array.prototype.del = function (dx) {

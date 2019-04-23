@@ -2,9 +2,7 @@ import router from './router'
 import store from './store'
 import NProgress from 'nprogress' // Progress 进度条
 import 'nprogress/nprogress.css' // Progress 进度条样式
-import {
-  Message
-} from 'ant-design-vue'
+import {Button} from 'ant-design-vue';
 import {
   getToken
 } from '@/utils/auth' // 验权

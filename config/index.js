@@ -12,7 +12,7 @@ module.exports = {
     // Gzip off by default as many popular static hosts such as
     // Surge or Netlify already gzip all static assets for you.
     // Before setting to `true`, make sure to:  
-      
+
     // npm install --save-dev compression-webpack-plugin
     productionGzip: false,
     productionGzipExtensions: ['js', 'css'],
@@ -29,14 +29,14 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
-    '/apiservice': {
-        'target': 'https://superservice.guoanshequ.wang/',
-        'secure': false, 
+      '/api': {
+        'target': 'http://localhost:2000/',
+        'secure': false,
         'changeOrigin': true, // 如果接口跨域，需要进行这个参数配置
         'pathRewrite': {
-          '^/apiservice': '/apiservice'
+          '^/api': '/api'
         }
-      }, 
+      },
       // '/apiservice': {
       //   // target: 'http://10.16.70.62:8800/',
       //   // target: 'http://10.16.70.63:8801/',
@@ -46,7 +46,7 @@ module.exports = {
       //     '^/apiservice': ''
       //   }
       // }, 
-     },
+    },
     // CSS Sourcemaps off by default because relative paths are "buggy"
     // with this option, according to the CSS-Loader README
     // (https://github.com/webpack/css-loader#sourcemaps)

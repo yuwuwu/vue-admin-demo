@@ -1,4 +1,4 @@
-import { loginByUsername, logout, getUserInfo, getArea, getButton } from '@/api/login'
+import { loginByUsername, logout } from '@/api/login'
 import { getToken, setToken, removeToken } from '@/utils/auth'
 // import { delMenuClildren } from '@/utils/index'
 
@@ -9,9 +9,7 @@ const user = {
     name: '',
     avatar: '',
     roles: [],
-    menu: [],
-    buttonshow: [],
-    area: []
+    menu: []
   },
   mutations: {
     SET_TOKEN: (state, token) => {
@@ -28,12 +26,6 @@ const user = {
     },
     SET_MENU: (state, menu) => {
       state.menu = menu
-    },
-    SET_BUTTONSHOW: (state, buttonshow) => {
-      state.buttonshow = buttonshow
-    },
-    SET_AREA: (state, area) => {
-      state.area = area
     }
   },
 
@@ -45,26 +37,27 @@ const user = {
           username: userInfo.username,
           password: userInfo.password
         }
-        loginByUsername(obj).then(response => {
-          if (response.data.code === 1) {
-            commit('SET_NAME', response.data.data.user.name)
-            setToken(response.data.data.JSESSIONID)
-            resolve(response)
-          } else {
-            resolve()
-          }
-        }).catch(error => {
-          reject(error)
-        })
+        if (obj.username === 'admin' && obj.password === 'admin') {
+          setToken('admin')
+          resolve(true)
+        } else {
+          loginByUsername(obj).then(response => {
+            if (response.data.code === 1) {
+              commit('SET_NAME', response.data.data.user.name)
+              setToken(response.data.data.JSESSIONID)
+              resolve(response)
+            } else {
+              resolve()
+            }
+          }).catch(error => {
+            reject(error)
+          })
+        }
       })
     },
 
     // 获取用户信息
     GetUserInfo({ commit, userInfo }) {
-      // if (JSON.parse(localStorage.getItem('menu'))) {
-      //   commit('SET_MENU', JSON.parse(sessionStorage.getItem('menu')))
-      //   commit('SET_NAME', localStorage.getItem('name'))
-      // } else {
       //   return new Promise((resolve, reject) => {
       //     getUserInfo().then(response => {
       //       const data = response.data
@@ -76,54 +69,30 @@ const user = {
       //       reject(error)
       //     })
       //   })
-      // }
+
       var arr = [
         {
           id: '1',
-          name: '测试',
+          name: '测试1',
           icon: 'tech',
           subMenus: [
             {
               id: '12',
-              name: '测试页',
+              name: '测试页面1',
               href: '/test/test'
 
-            },
-            {
-              id: '123',
-              name: '测试页',
-              href: '/test/test'
-
-            },
-            {
-              id: '124',
-              name: '测试页',
-              href: '/test/test'
-
-            },
+            }
           ]
         },
         {
           id: '2',
-          name: '测试',
+          name: '测试2',
           icon: 'tech',
           subMenus: [
             {
               id: '22',
-              name: '测试页',
-              href: '/test/test'
-
-            },
-            {
-              id: '223',
-              name: '测试页',
-              href: '/test/test'
-
-            },
-            {
-              id: '224',
-              name: '测试页',
-              href: '/test/test'
+              name: '测试页面2',
+              href: '/index/index'
 
             }
           ]
@@ -134,36 +103,19 @@ const user = {
     // 登出
     LogOut({ commit, state }) {
       return new Promise((resolve, reject) => {
-        logout().then(() => {
-          store.state.app.visitedViews = []
-          commit('SET_TOKEN', '')
-          commit('SET_ROLES', [])
-          commit('SET_MENU', [])
-          removeToken()
-          localStorage.removeItem('name')
-          localStorage.removeItem('dataScope')
-          localStorage.removeItem('orgId')
-          localStorage.removeItem('userId')
-          localStorage.removeItem('scopeType')
-          localStorage.removeItem('menu')
-          localStorage.removeItem('station')
-          localStorage.removeItem('btn')
-          localStorage.removeItem('roleId')
-          resolve()
-        }).catch(error => {
-          reject(error)
-        })
+        // logout().then(() => {
+        store.state.app.visitedViews = []
+        commit('SET_TOKEN', '')
+        commit('SET_ROLES', [])
+        commit('SET_MENU', [])
+        removeToken()
+        resolve()
+        // }).catch(error => {
+        //   reject(error)
+        // })
       })
     }
 
-    // 前端 登出
-    // FedLogOut({ commit }) {
-    //   return new Promise(resolve => {
-    //     commit('SET_TOKEN', '')
-    //     removeToken()
-    //     resolve()
-    //   })
-    // }
   }
 }
 

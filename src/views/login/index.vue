@@ -5,101 +5,111 @@
       
     </div> -->
     <div class="formBox">
-    <a-form autoComplete="on" :model="loginForm" :rules="loginRules" ref="loginForm" label-position="left" label-width="0px"
-      class="login-form">
-      <a-form-item prop="username">
-        <a-input class="username" name="username" type="text" v-model="loginForm.username" autoComplete="on" placeholder="登录账号(手机号)" />
-      </a-form-item>
-      <a-form-item prop="password">
-        <a-input class="password" name="password" type="password" @keyup.enter.native="handleLogin" v-model="loginForm.password" autoComplete="on"
-          placeholder="密码(6-20位数字、字母组合)"></a-input>
-      </a-form-item>
-      <a-form-item class="loginitem">
-        <a-button type="primary"  class="loginbtn"  :loading="loading" @click.native.prevent="handleLogin">
-          登&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;录
-        </a-button>
-      </a-form-item>
-      <div class='tips'>
-        <!-- <span style="margin-right:20px;">登录账号: 手机号</span>
+      <el-form autoComplete="on"
+               :model="loginForm"
+               :rules="loginRules"
+               ref="loginForm"
+               label-position="left"
+               label-width="0px"
+               class="login-form">
+        <el-form-item prop="username">
+          <el-input class="username"
+                    name="username"
+                    type="text"
+                    v-model="loginForm.username"
+                    autoComplete="on"
+                    placeholder="登录账号(admin)" />
+        </el-form-item>
+        <el-form-item prop="password">
+          <el-input class="password"
+                    name="password"
+                    type="password"
+                    @keyup.enter.native="handleLogin"
+                    v-model="loginForm.password"
+                    autoComplete="on"
+                    placeholder="密码(admin)"></el-input>
+        </el-form-item>
+        <el-form-item class="loginitem">
+          <el-button type="primary"
+                     class="loginbtn"
+                     :loading="loading"
+                     @click.native.prevent="handleLogin">
+            登&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;录
+          </el-button>
+        </el-form-item>
+        <div class='tips'>
+          <!-- <span style="margin-right:20px;">登录账号: 手机号</span>
         </span> 密码: 6-20w</span> -->
-      </div>
-    </a-form>
+        </div>
+      </el-form>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "login",
+  name: 'login',
   data() {
-    var validatePhone = (rule, value, callback) => {
-      if (!value) {
-        return callback(new Error("登录账号不能为空"));
-      } else {
-        if (!/^1[3|4|5|7|8][0-9]\d{8}$/.test(value)) {
-          callback(new Error("登录账号格式不正确！"));
-        } else {
-          callback();
-        }
-      }
-    };
-    var validatePassword = (rule, value, callback) => {
-      if (value == undefined) {
-        callback();
-      } else {
-        if (!/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,20}$/.test(value)) {
-          callback(new Error("密码必须由6-20位数字、字母两种组成"));
-        } else {
-          callback();
-        }
-      }
-    };
+    // var validatePhone = (rule, value, callback) => {
+    //   if (!value) {
+    //     return callback(new Error('登录账号不能为空'))
+    //   } else {
+    //     if (!/^1[3|4|5|7|8][0-9]\d{8}$/.test(value)) {
+    //       callback(new Error('登录账号格式不正确！'))
+    //     } else {
+    //       callback()
+    //     }
+    //   }
+    // }
+    // var validatePassword = (rule, value, callback) => {
+    //   if (value == undefined) {
+    //     callback()
+    //   } else {
+    //     if (!/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,20}$/.test(value)) {
+    //       callback(new Error('密码必须由6-20位数字、字母两种组成'))
+    //     } else {
+    //       callback()
+    //     }
+    //   }
+    // }
     return {
       loginForm: {
-        username: "",
-        password: ""
+        username: '',
+        password: ''
       },
       loginRules: {
         username: [
-          { required: true, message: "登录账号不能为空", trigger: "blur" }
+          { required: true, message: '登录账号不能为空', trigger: 'blur' }
         ],
-        password: [{ required: true, message: "密码不能为空", trigger: "blur" }]
+        password: [{ required: true, message: '密码不能为空', trigger: 'blur' }]
       },
       loading: false
-    };
+    }
   },
   methods: {
     handleLogin() {
-      //登录
-      //登录时先清空，防止非正常直接渲染
-      // localStorage.removeItem("name");
-      // localStorage.removeItem("dataScope");
-      // localStorage.removeItem("orgId");
-      // localStorage.removeItem("userId");
-      // localStorage.removeItem("menu");
-      // localStorage.removeItem("station");
-      // localStorage.removeItem("btn");
-      // localStorage.removeItem("roleId");
-      // localStorage.removeItem("roleId");
+      // 登录
+      // 登录时先清空，防止非正常直接渲染
+
       // this.$refs.loginForm.validate(valid => {
-        // if (valid) {
-          this.loading = true;
-          this.$store
-            .dispatch("LoginByUsername", this.loginForm)
-            .then(res => {
-              this.loading = false;
-              this.$router.push({ path: "/" });
-            })
-            .catch(() => {
-              this.loading = false;
-            });
-        // } else {
-          // return false;
-        // }
+      // if (valid) {
+      this.loading = true
+      this.$store
+        .dispatch('LoginByUsername', this.loginForm)
+        .then(res => {
+          this.loading = false
+          this.$router.push({ path: '/' })
+        })
+        .catch(() => {
+          this.loading = false
+        })
+      // } else {
+      // return false;
+      // }
       // });
     }
   }
-};
+}
 </script>
 
 <style rel="stylesheet/scss" lang="scss">

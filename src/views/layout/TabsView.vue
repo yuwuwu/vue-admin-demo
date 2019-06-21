@@ -1,106 +1,115 @@
 <template>
   <div class='tabs-view-container'>
-   
-    <div class="leftmove" @click="leftmove">&#139</div>
-    <router-link  class="tabs-view" v-for="tag in Array.from(visitedViews)" :to="{path:tag.path,query:{keep:'true'}}" :key="tag.path+'?'+'keep=true'">
-      <a-tag :closable="true" class="tabsview" :type="isActive(tag.path)?'primary':''" @close='closeViewTabs(tag,$event)'>
+
+    <div class="leftmove"
+         @click="leftmove">←</div>
+    <router-link class="tabs-view"
+                 v-for="tag in Array.from(visitedViews)"
+                 :to="{path:tag.path,query:{keep:'true'}}"
+                 :key="tag.path+'?'+'keep=true'">
+      <el-tag :closable="true"
+              class="tabsview"
+              :type="isActive(tag.path)?'primary':''"
+              @close='closeViewTabs(tag,$event)'>
         {{tag.name}}
-      </a-tag>
+      </el-tag>
     </router-link>
-	<div class="rightmove"  @click="rightmove">&#155</div>
+    <div class="rightmove"
+         @click="rightmove">→</div>
   </div>
-  
+
 </template>
 
 <script>
 export default {
   computed: {
     visitedViews() {
-      return this.$store.state.app.visitedViews.slice(-10);
+      return this.$store.state.app.visitedViews.slice(-10)
     }
   },
   methods: {
     closeViewTabs(view, $event) {
       // view.path = view.path+'?keep=true'
-      // var routerObj 
-      this.$store.dispatch("delVisitedViews", view).then(views => {
+      // var routerObj
+      this.$store.dispatch('delVisitedViews', view).then(views => {
         if (this.isActive(view.path)) {
-          const latestView = views.slice(-1)[0];
+          const latestView = views.slice(-1)[0]
           if (latestView) {
-            this.$router.push(latestView.path);
+            this.$router.push(latestView.path)
           } else {
-            this.$router.push("/");
+            this.$router.push('/')
           }
         }
-      });
-      $event.preventDefault();
+      })
+      $event.preventDefault()
     },
     generateRoute() {
       if (this.$route.name) {
-        return this.$route;
+        return this.$route
       }
-      return false;
+      return false
     },
     addViewTabs() {
-      const route = this.generateRoute();
+      const route = this.generateRoute()
       if (!route) {
-        return false;
+        return false
       }
-      this.$store.dispatch("addVisitedViews", this.generateRoute());
+      this.$store.dispatch('addVisitedViews', this.generateRoute())
     },
     isActive(path) {
-      return path === this.$route.path+'?keep=true';
+      return path === this.$route.path + '?keep=true'
     },
     rightmove() {
-      var obj = this.$store.state.app.visitedViews;
-      var objLen = obj.length;
-      var activeIndex = 0;
-      if (objLen != 0) {
+      var obj = this.$store.state.app.visitedViews
+      var objLen = obj.length
+      var activeIndex = 0
+      if (objLen !== 0) {
         for (var i = 0; i < objLen; i++) {
-          if (obj[i].path === this.$route.path+'?keep=true') {
-            activeIndex = i;
+          if (obj[i].path === this.$route.path + '?keep=true') {
+            activeIndex = i
           }
         }
         if (activeIndex < objLen - 1) {
-          activeIndex++;
-          this.$router.push({ path: obj[activeIndex].path });
+          activeIndex++
+          this.$router.push({ path: obj[activeIndex].path })
         } else {
-          activeIndex = 0;
-          this.$router.push({ path: obj[activeIndex].path });
+          activeIndex = 0
+          this.$router.push({ path: obj[activeIndex].path })
         }
       }
     },
     leftmove() {
-      var obj = this.$store.state.app.visitedViews;
-      var objLen = obj.length;
-      if (objLen != 0) {
-        var lastObj = obj.slice(-1)[0];
-        var lastIndex = 0;
-        var activeIndex = 0;
+      var obj = this.$store.state.app.visitedViews
+      var objLen = obj.length
+      // eslint-disable-next-line eqeqeq
+      if (objLen !== 0) {
+        var lastObj = obj.slice(-1)[0]
+        var lastIndex = 0
+        var activeIndex = 0
         for (var i = 0; i < objLen; i++) {
-          if (obj[i].path === this.$route.path+'?keep=true') {
-            activeIndex = i;
+          if (obj[i].path === this.$route.path + '?keep=true') {
+            activeIndex = i
           }
           if (obj[i].path === lastObj.path) {
-            lastIndex = i;
+            lastIndex = i
           }
         }
         if (activeIndex > 0) {
-          activeIndex--;
-          this.$router.push({ path: obj[activeIndex].path });
+          activeIndex--
+          this.$router.push({ path: obj[activeIndex].path })
         } else {
-          activeIndex = lastIndex;
-          this.$router.push({ path: obj[activeIndex].path });
+          activeIndex = lastIndex
+          this.$router.push({ path: obj[activeIndex].path })
         }
       }
     }
   },
   watch: {
     $route() {
-      this.addViewTabs();
+      this.addViewTabs()
     }
   }
-};
+}
 </script>
 
 <style rel="stylesheet/scss" lang="scss" scoped>
@@ -115,7 +124,6 @@ export default {
   border-top: 1px solid #eee;
   .leftmove {
     display: inline-block;
-    float: left;
     width: 30px;
     height: 30px;
     line-height: 28px;
@@ -126,7 +134,6 @@ export default {
   }
   .rightmove {
     display: inline-block;
-    float: right;
     width: 30px;
     height: 30px;
     line-height: 28px;

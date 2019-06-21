@@ -21,9 +21,17 @@ export const constantRouterMap = [
   {
     path: '/test',
     component: Layout,
-    name: '测试页面',
+    name: '测试页面1',
     children: [
-      { path: 'test', meta: { isUseCache: true, keepAlive: false, keepNum: 1 }, name: '测试页面', component: _import('test/test') }
+      { path: 'test', meta: { isUseCache: true, keepAlive: false, keepNum: 1 }, name: '测试页面2', component: _import('test/test') }
+    ]
+  },
+  {
+    path: '/index',
+    component: Layout,
+    name: '测试页面2',
+    children: [
+      { path: 'index', meta: { isUseCache: true, keepAlive: false, keepNum: 1 }, name: '测试页面2', component: _import('index/index') }
     ]
   },
 

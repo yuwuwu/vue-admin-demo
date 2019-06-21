@@ -28,7 +28,7 @@ var arr = []
 // 拦截响应
 instance.interceptors.response.use(res => {
   if (res.data.code !== undefined) {
-    if(res.data.code==1){
+    if (res.data.code === 1) {
       Message.error('登录已过期或者个人资料被更改,请重新登录,3秒后回到登录页面')
     }
     if (res.data.code === 2) {
